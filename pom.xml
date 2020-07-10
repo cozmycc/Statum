@@ -6,7 +6,7 @@
 
     <groupId>klasowy</groupId>
     <artifactId>klasowy</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.4</version>
     <packaging>jar</packaging>
 
     <name>Klasowy</name>

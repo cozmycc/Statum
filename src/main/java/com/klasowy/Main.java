@@ -8,14 +8,13 @@ import org.bukkit.scoreboard.Scoreboard;
 
 public final class Main extends JavaPlugin {
 
-    final int build = 16;
-    String[] teams = {"wild", "pergamon", "molkograd", "vallis", "nether"};
-    String[] teamNames = {"Dzicz", "Pergamon", "Molkograd", "Vallis Civitatis", "Nether"};
+    final int build = 22;
+    String[] teams = {"wild", "pergamon", "molkograd", "vallis", "nether", "end"};
+    String[] teamNames = {"Dzicz", "Pergamon", "Molkograd", "Vallis Civitatis", "Nether", "The End"};
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
-        getServer().broadcastMessage("[Plugin] " + ChatColor.GREEN + "KlasowyPlugin v1.2.1 (" + build + ") is enabled!");
+        getServer().getOnlinePlayers().forEach(p -> p.sendMessage("[Plugin] " + ChatColor.GREEN + "KlasowyPlugin v1.2.3 (" + build + ") is enabled!"));
 
         Scoreboard sb = Bukkit.getScoreboardManager().getNewScoreboard();
         for(int i = 0; i < teams.length; i++) {
