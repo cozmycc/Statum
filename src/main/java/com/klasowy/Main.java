@@ -6,33 +6,22 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
 import org.bukkit.scoreboard.Scoreboard;
 
-import java.util.Objects;
-
 public final class Main extends JavaPlugin {
 
     final int build = 16;
+    String[] teams = {"wild", "pergamon", "molkograd", "vallis", "nether"};
+    String[] teamNames = {"Dzicz", "Pergamon", "Molkograd", "Vallis Civitatis", "Nether"};
 
     @Override
     public void onEnable() {
         // Plugin startup logic
-        getServer().getOnlinePlayers().forEach(player -> {
-            player.sendMessage("[Plugin] " + ChatColor.GREEN + "KlasowyPlugin v1.2.1 (" + build + ") is enabled!");
-        });
+        getServer().broadcastMessage("[Plugin] " + ChatColor.GREEN + "KlasowyPlugin v1.2.1 (" + build + ") is enabled!");
 
         Scoreboard sb = Bukkit.getScoreboardManager().getNewScoreboard();
-        sb.registerNewTeam("wild");
-        sb.registerNewTeam("pergamon");
-        sb.registerNewTeam("molkograd");
-        sb.registerNewTeam("vallis");
-        sb.registerNewTeam("nether");
-
-
-        Objects.requireNonNull(sb.getTeam("wild")).setDisplayName("Dzicz");
-        Objects.requireNonNull(sb.getTeam("pergamon")).setDisplayName("Pergamon");
-        Objects.requireNonNull(sb.getTeam("molkograd")).setDisplayName("Molkograd");
-        Objects.requireNonNull(sb.getTeam("vallis")).setDisplayName("Vallis Civitatis");
-        Objects.requireNonNull(sb.getTeam("nether")).setDisplayName("Nether");
-
+        for(int i = 0; i < teams.length; i++) {
+            sb.registerNewTeam(teams[i]);
+            sb.getTeam(teams[i]).setDisplayName(teamNames[i]);
+        }
 
         Bukkit.getPluginManager().registerEvents(new KlasowyListener(this, sb), this);
 
