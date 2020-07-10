@@ -1,0 +1,7 @@
+name: KlasowyPlugin
+version: ${project.version}
+main: com.klasowy.Main
+api-version: 1.16
+prefix: KlasowyPlugin
+authors: [kalucky0]
+website: https://kalucky0.dev/
