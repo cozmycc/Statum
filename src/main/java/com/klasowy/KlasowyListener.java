@@ -1,5 +1,6 @@
 package com.klasowy;
 
+import com.destroystokyo.paper.event.server.ServerTickEndEvent;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -13,6 +14,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.UUID;
+
+import static org.bukkit.Bukkit.getServer;
 
 public class KlasowyListener implements Listener {
 
@@ -31,6 +34,19 @@ public class KlasowyListener implements Listener {
         cities.put("pergamon", new HashMap<>());
         cities.put("nether", new HashMap<>());
         cities.put("end", new HashMap<>());
+    }
+
+    @EventHandler
+    public void onServerTickEnd(ServerTickEndEvent e) {
+        long time = getServer().getWorld("world").getTime();
+        if (time == 50) {
+            long fullTime = getServer().getWorld("world").getFullTime();
+            double day = Math.floor(fullTime/24000)+1;
+            double year = Math.floor(day/360);
+            day -= year*360;
+            year++;
+            getServer().broadcastMessage(ChatColor.GOLD + "Jest " + ChatColor.GREEN + day + ChatColor.GOLD + " dzień, roku " + ChatColor.GREEN + year + ChatColor.GOLD + ".");
+        }
     }
 
     @EventHandler
