@@ -32,6 +32,7 @@ public class KlasowyListener implements Listener {
         cities.put("molkograd", new HashMap<>());
         cities.put("vallis", new HashMap<>());
         cities.put("pergamon", new HashMap<>());
+        cities.put("maginia", new HashMap<>());
         cities.put("nether", new HashMap<>());
         cities.put("end", new HashMap<>());
     }
@@ -63,8 +64,8 @@ public class KlasowyListener implements Listener {
 
         if (player.getWorld().getName().equals("world")) {
             // Pergamon
-            // X: 865 | 1000  Z: 331 | 453
-            if (isInRect(loc, 865, 1000, 331, 453)) {
+            // X: 865 | 990  Z: 331 | 453
+            if (isInRect(loc, 865, 990, 331, 453)) {
                 if (!isInCity(player, "pergamon", true))
                     sendGreeting(player, "Pergamonie");
                 setPlayerTeam(player, "pergamon");
@@ -86,10 +87,19 @@ public class KlasowyListener implements Listener {
                 setPlayerTeam(player, "vallis");
                 setPlayerCity(player.getUniqueId(), "vallis");
 
+                // Maginia
+                // X: 690 | 788  Z: 563 | 710
+            } else if (isInRect(loc, 460, 752, 1000, 1340)) {
+                if (!isInCity(player, "maginia", true))
+                    sendGreeting(player, "Maginii");
+                setPlayerTeam(player, "maginia");
+                setPlayerCity(player.getUniqueId(), "maginia");
+
             } else {
                 if (isInCity(player, "pergamon")) sendGoodbye(player, "Pergamon");
                 else if (isInCity(player, "molkograd")) sendGoodbye(player, "Molkograd");
                 else if (isInCity(player, "vallis")) sendGoodbye(player, "Vallis Civitatis");
+                else if (isInCity(player, "maginia")) sendGoodbye(player, "Maginia");
                 setPlayerTeam(player, "wild");
                 setPlayerCity(player.getUniqueId(), "wild");
             }

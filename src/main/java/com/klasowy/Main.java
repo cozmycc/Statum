@@ -8,8 +8,8 @@ import org.bukkit.scoreboard.Scoreboard;
 public final class Main extends JavaPlugin {
 
     final int build = 24;
-    final static String[] teams = {"wild", "pergamon", "molkograd", "vallis", "nether", "end"};
-    final static String[] teamNames = {"Dzicz", "Pergamon", "Molkograd", "Vallis Civitatis", "Nether", "The End"};
+    final static String[] teams = {"wild", "pergamon", "molkograd", "vallis", "maginia", "nether", "end"};
+    final static String[] teamNames = {"Dzicz", "Pergamon", "Molkograd", "Vallis Civitatis", "Maginia", "Nether", "The End"};
 
     @Override
     public void onEnable() {
