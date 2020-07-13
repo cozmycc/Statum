@@ -42,8 +42,8 @@ public class KlasowyListener implements Listener {
         long time = getServer().getWorld("world").getTime();
         if (time == 50) {
             long fullTime = getServer().getWorld("world").getFullTime();
-            double day = Math.floor(fullTime/24000)+1;
-            double year = Math.floor(day/360);
+            int day = (int) (Math.floor(fullTime/24000)+1);
+            int year = (int) Math.floor(day/360);
             day -= year*360;
             year++;
             getServer().broadcastMessage(ChatColor.GOLD + "Jest " + ChatColor.GREEN + day + ChatColor.GOLD + " dzień, roku " + ChatColor.GREEN + year + ChatColor.GOLD + ".");
