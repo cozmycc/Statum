@@ -89,7 +89,7 @@ public class KlasowyListener implements Listener {
 
                 // Maginia
                 // X: 690 | 788  Z: 563 | 710
-            } else if (isInRect(loc, 460, 752, 1000, 1340)) {
+            } else if (isInRect(loc, 690, 788, 563, 710)) {
                 if (!isInCity(player, "maginia", true))
                     sendGreeting(player, "Maginii");
                 setPlayerTeam(player, "maginia");
