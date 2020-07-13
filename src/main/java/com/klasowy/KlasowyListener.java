@@ -19,7 +19,7 @@ public class KlasowyListener implements Listener {
     HashMap<String, HashMap<UUID, Boolean>> cities = new HashMap<>();
     Scoreboard sb;
     JavaPlugin plugin;
-    Vector prev = new Vector(0,0,0);
+    Vector prev = new Vector(0, 0, 0);
 
     KlasowyListener(JavaPlugin pl, Scoreboard scoreboard) {
         sb = scoreboard;
@@ -38,9 +38,9 @@ public class KlasowyListener implements Listener {
         if (e.getFrom().getBlockX() == e.getTo().getBlockX() && e.getFrom().getBlockY() == e.getTo().getBlockY() && e.getFrom().getBlockZ() == e.getTo().getBlockZ())
             return;
 
-        if(calcDistance(e.getFrom().getBlockX(), e.getFrom().getBlockZ(), prev.getBlockX(), prev.getBlockZ()) < 5)
+        if (calcDistance(e.getFrom().getBlockX(), e.getFrom().getBlockZ(), prev.getBlockX(), prev.getBlockZ()) < 5)
             return;
-        prev = new Vector(e.getFrom().getBlockX(),0, e.getFrom().getBlockZ());
+        prev = new Vector(e.getFrom().getBlockX(), 0, e.getFrom().getBlockZ());
 
         Player player = e.getPlayer();
         Location loc = player.getLocation();
@@ -49,28 +49,27 @@ public class KlasowyListener implements Listener {
             // Pergamon
             // X: 865 | 1000  Z: 331 | 453
             if (isInRect(loc, 865, 1000, 331, 453)) {
-                if (!isInCity(player, "pergamon", true)) {
+                if (!isInCity(player, "pergamon", true))
                     sendGreeting(player, "Pergamonie");
-                    setPlayerTeam(player, "pergamon");
-                    setPlayerCity(player.getUniqueId(), "pergamon");
-                }
+                setPlayerTeam(player, "pergamon");
+                setPlayerCity(player.getUniqueId(), "pergamon");
 
                 // Molkograd
                 // X: 825 | 1035  Z: -170 | 100
             } else if (isInRect(loc, 825, 1035, -170, 100)) {
-                if (!isInCity(player, "molkograd", true)) {
+                if (!isInCity(player, "molkograd", true))
                     sendGreeting(player, "Molkogradzie");
-                    setPlayerTeam(player, "molkograd");
-                    setPlayerCity(player.getUniqueId(), "molkograd");
-                }
+                setPlayerTeam(player, "molkograd");
+                setPlayerCity(player.getUniqueId(), "molkograd");
+
                 // Vallis Civitatis
-                // X: 560 | 752  Z: 1000 | 1340
-            } else if (isInRect(loc, 560, 752, 1000, 1340)) {
-                if (!isInCity(player, "vallis", true)) {
+                // X: 460 | 752  Z: 1000 | 1340
+            } else if (isInRect(loc, 460, 752, 1000, 1340)) {
+                if (!isInCity(player, "vallis", true))
                     sendGreeting(player, "Vallis Civitatis");
-                    setPlayerTeam(player, "vallis");
-                    setPlayerCity(player.getUniqueId(), "vallis");
-                }
+                setPlayerTeam(player, "vallis");
+                setPlayerCity(player.getUniqueId(), "vallis");
+
             } else {
                 if (isInCity(player, "pergamon")) sendGoodbye(player, "Pergamon");
                 else if (isInCity(player, "molkograd")) sendGoodbye(player, "Molkograd");
@@ -87,9 +86,8 @@ public class KlasowyListener implements Listener {
         }
     }
 
-    double calcDistance(int x1,int y1,int x2,int y2)
-    {
-        return (Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1)));
+    double calcDistance(int x1, int y1, int x2, int y2) {
+        return (Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
     }
 
     void setPlayerCity(UUID playerId, String cityName) {
