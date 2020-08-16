@@ -66,34 +66,38 @@ public class KlasowyListener implements Listener {
             // Pergamon
             // X: 865 | 990  Z: 331 | 453
             if (isInRect(loc, 865, 990, 331, 453)) {
-                if (!isInCity(player, "pergamon", true))
+                if (!isInCity(player, "pergamon")) {
                     sendGreeting(player, "Pergamonie");
-                setPlayerTeam(player, "pergamon");
-                setPlayerCity(player.getUniqueId(), "pergamon");
+                    setPlayerTeam(player, "pergamon");
+                    setPlayerCity(player.getUniqueId(), "pergamon");
+                }
 
                 // Molkograd
                 // X: 825 | 1035  Z: -170 | 100
             } else if (isInRect(loc, 825, 1035, -170, 100)) {
-                if (!isInCity(player, "molkograd", true))
+                if (!isInCity(player, "molkograd")) {
                     sendGreeting(player, "Molkogradzie");
-                setPlayerTeam(player, "molkograd");
-                setPlayerCity(player.getUniqueId(), "molkograd");
+                    setPlayerTeam(player, "molkograd");
+                    setPlayerCity(player.getUniqueId(), "molkograd");
+                }
 
                 // Vallis Civitatis
                 // X: 460 | 752  Z: 1000 | 1340
             } else if (isInRect(loc, 460, 752, 1000, 1340)) {
-                if (!isInCity(player, "vallis", true))
+                if (!isInCity(player, "vallis")) {
                     sendGreeting(player, "Vallis Civitatis");
-                setPlayerTeam(player, "vallis");
-                setPlayerCity(player.getUniqueId(), "vallis");
+                    setPlayerTeam(player, "vallis");
+                    setPlayerCity(player.getUniqueId(), "vallis");
+                }
 
                 // Maginia
                 // X: 690 | 788  Z: 563 | 710
             } else if (isInRect(loc, 690, 788, 563, 710)) {
-                if (!isInCity(player, "maginia", true))
+                if (!isInCity(player, "maginia")) {
                     sendGreeting(player, "Maginii");
-                setPlayerTeam(player, "maginia");
-                setPlayerCity(player.getUniqueId(), "maginia");
+                    setPlayerTeam(player, "maginia");
+                    setPlayerCity(player.getUniqueId(), "maginia");
+                }
 
             } else {
                 if (isInCity(player, "pergamon")) sendGoodbye(player, "Pergamon");
@@ -122,10 +126,6 @@ public class KlasowyListener implements Listener {
 
     boolean isInCity(Player player, String cityName) {
         return cities.get(cityName).getOrDefault(player.getUniqueId(), false);
-    }
-
-    boolean isInCity(Player player, String cityName, boolean defaultVal) {
-        return cities.get(cityName).getOrDefault(player.getUniqueId(), defaultVal);
     }
 
     void setPlayerTeam(Player player, String teamName) {
