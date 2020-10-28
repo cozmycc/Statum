@@ -1,7 +1,14 @@
-name: KlasowyPlugin
+name: Statum
 version: ${project.version}
-main: com.klasowy.Main
+main: com.statum.Main
 api-version: 1.16
-prefix: KlasowyPlugin
+prefix: Statum
 authors: [kalucky0]
 website: https://kalucky0.dev/
+commands:
+  clock:
+    description: Show current time and date
+    usage: /clock
+  statum:
+    description: Test
+    usage: /statum

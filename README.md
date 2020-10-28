@@ -1,9 +1,9 @@
 # Statum
 ![GitHub](https://img.shields.io/github/license/kalucky0/Statum)
-![Minecraft 1.16.1](https://img.shields.io/badge/Minecraft-1.16.1-blue)
+![Minecraft 1.16.3](https://img.shields.io/badge/Minecraft-1.16.3-blue)
 ![GitHub repo size](https://img.shields.io/github/repo-size/kalucky0/Statum)
 
-A simple plugin for Minecraft 1.16.1 servers that allows you to create regions like cities, villages, countries etc.
+A simple plugin for Minecraft 1.16.3 servers that allows you to create regions like cities, villages, countries etc.
 
 ## Support
 [![Discord](https://img.shields.io/discord/770691727568404521.svg?logoColor=FFFFFF&logo=discord&color=7289DA)](https://discord.com/invite/wmMa47n)
