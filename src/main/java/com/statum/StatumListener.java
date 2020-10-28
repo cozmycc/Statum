@@ -11,11 +11,11 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class StatumListener implements Listener {
-    static HashMap<String, HashMap<UUID, Boolean>> cities = new HashMap<>();
+    static ArrayList<City> cities = new ArrayList<>();
     Scoreboard scoreboard;
     JavaPlugin plugin;
     Vector prev = new Vector(0, 0, 0);
@@ -49,12 +49,12 @@ public class StatumListener implements Listener {
         return (Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
     }
 
-    void setPlayerCity(UUID playerId, String cityName) {
-        cities.forEach((name, city) -> city.put(playerId, name.equals(cityName)));
+    void setPlayerCity(UUID playerId, int cityId) {
+        cities.forEach(city -> city.setVisitor(playerId, cities.get(cityId).name.equals(city.name)));
     }
 
-    boolean isInCity(Player player, String cityName) {
-        return cities.get(cityName).getOrDefault(player.getUniqueId(), false);
+    boolean isInCity(Player player, int cityId) {
+        return cities.get(cityId).visitors.contains(player.getUniqueId());
     }
 
     void setPlayerTeam(Player player, String teamName) {

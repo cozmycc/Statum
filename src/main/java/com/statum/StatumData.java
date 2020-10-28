@@ -8,8 +8,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.UUID;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
@@ -17,9 +16,9 @@ import java.util.zip.GZIPOutputStream;
 public class StatumData implements Serializable {
     private static transient final long serialVersionUID = -1681012206529286330L;
 
-    public final HashMap<String, HashMap<UUID, Boolean>> cities;
+    public final ArrayList<City> cities;
 
-    public StatumData(HashMap<String, HashMap<UUID, Boolean>> cities) {
+    public StatumData(ArrayList<City> cities) {
         this.cities = cities;
     }
 
@@ -51,7 +50,7 @@ public class StatumData implements Serializable {
             return null;
         }
     }
-    public static void saveCities(HashMap<String, HashMap<UUID, Boolean>> cities) {
+    public static void saveCities(ArrayList<City> cities) {
         new StatumData(cities).saveData("Statum.data");
         Bukkit.getServer().getLogger().log(Level.INFO, "Data Saved");
     }
